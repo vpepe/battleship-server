@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>You Win!</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            margin-bottom: 20px;
+            position: fixed;
+            top: 0;
+            height: 30px;
+        }
+        .progress-bar-fill {
+            height: 30px;
+            color: #ffffff;
+            background-color: #4caf50;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            width: {{ progress }}%;
+            position: fixed;
+            top: 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress-bar-fill">Progress: {{ progress }}%</div>
+    </div>
+    <div class="container">
+        <h1>You Win!</h1>
+        <p>All ships sunk. Congratulations!</p>
+        <button onclick="window.location.href='/next_game'">Next Game</button>
+    </div>
+</body>
+</html>

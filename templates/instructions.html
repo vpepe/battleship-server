@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instructions</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            margin-bottom: 20px;
+            position: fixed;
+            top: 0;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress-bar-fill">Progress: 0%</div>
+    </div>
+    <div class="container">
+        <h1>Welcome to the MIT CoCoSci Battleship Game!</h1>
+        <p>In this experiment, you will play a game of Battleship. The objective is to uncover and sink all the ships hidden on the board.</p>
+        <p>You will play a smaller, trial round first to learn the ropes, followed by two real rounds. Try to complete each round in as few moves as possible.</p>
+        <p>Click the button below to start the experiment. Good luck, and we hope you have fun!</p>
+        <button onclick="window.location.href='/start'">Start Experiment</button>
+    </div>
+</body>
+</html>

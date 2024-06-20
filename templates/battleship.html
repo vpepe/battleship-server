@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battleship Game</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, Helvetica, sans-serif;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            width: 50%;
+        }
+        .image {
+            width: 400px; /* Adjust size as needed */
+            height: 400px;
+            margin-right: 50px; /* Space between image and textbox */
+            margin-left: 100px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            margin-bottom: 20px;
+            position: fixed;
+            top: 0;
+            height: 30px;
+        }
+        .progress-bar-fill {
+            height: 30px;
+            color: #ffffff;
+            background-color: #4caf50;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            width: {{ progress }}%;
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar">
+        {% if progress == 0 %}
+            Progress: 0%
+        {% endif %}
+        <div class="progress-bar-fill">
+            {% if progress != 0 %}
+            Progress: {{ progress }}%
+            {% endif %}
+            </div>
+    </div>
+    <div class="container">
+        <img class="image" src="data:image/png;base64,{{ base64_image }}" alt="Image">
+        {% if solved == 'F' %}
+        <div class="form-container">
+            <form method="POST">
+                <input name="text" type="text" placeholder="Enter your move here...">
+                <input type="submit" value="Fire!">
+            </form>
+        </div>
+        {% if ships_sunk %}
+                {% set ships_sunk = ships_sunk %}
+        {% else %}
+                {% set ships_sunk = 'No ships sunk yet!' %}
+        {% endif %}
+        {% endif %}
+    </div>
+    <div>
+        {{ ships_sunk }}
+    </div>
+</body>
+</html>
